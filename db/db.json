@@ -12,5 +12,25 @@
       "password": "123",
       "name": "cloudy"
     }
+  ],
+  "gallery":[
+    {
+      "id":1,
+      "name":"Rosenfeld Gallery LLC",
+      "contact":11111,
+      "address":"Noida sector 50"
+    },
+    {
+      "id":2,
+      "name":"Museum",
+      "contact":11111,
+      "address":"Noida sector 50"
+    },
+    {
+      "id":3,
+      "name":"Museum",
+      "contact":11111,
+      "address":"Noida sector 50"
+    }
   ]
 }
