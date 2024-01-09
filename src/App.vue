@@ -3,27 +3,22 @@ import { RouterLink, RouterView } from 'vue-router';
 
 const name = 'Header';
 
-const methods = {
-  logout() {
-    localStorage.clear();
-    this.$router.push({ name: 'Login' });
-  },
+const logout = () => {
+  localStorage.clear();
+  this.$router.push({ name: 'Login' });
 };
 </script>
 
 <template>
-  
   <RouterView />
 </template>
 
 <style>
-body {
-  padding: 0;
-  margin: 0;
-}
+
 
 .register input,
-.login input {
+.login input,
+.add input {
   width: 300px;
   height: 40px;
   padding-left: 20px;
@@ -34,7 +29,8 @@ body {
 }
 
 .register button,
-.login button {
+.login button,
+.add button {
   width: 300px;
   height: 40px;
   border: 1px solid royalblue;
@@ -44,23 +40,30 @@ body {
 }
 
 .nav {
-  overflow: hidden;
-  background-color: black;
-}
+    overflow: hidden;
+    background-color: black;
+    position: fixed;
+    
+    top: 0;
+    margin: 0; 
+  }
+  
+  .nav a {
+    padding: 14px 16px;
+    text-align: center;
+    float: left;
+    font-size: 17px;
+    text-decoration: none;
+    margin-right: 5px;
+   
+  }
+  
+  .nav a:hover {
+    background: linear-gradient();
+  }
 
-.nav a {
-  padding: 14px 16px;
-  text-align: center;
-  float: left;
-  font-size: 17px;
-  text-decoration: none;
-  margin-right: 5px;
-}
-
-.nav a:hover {
-  background: linear-gradient();
-}
 </style>
+
 
 
 
