@@ -1,17 +1,19 @@
 <template>
-  
+  <div>
     <Header />
-  <div class="content-wrapper">
-    <br><br>
-    <br><br><br><br>
-    <h1>Update</h1>
-    <br><br>
-    <form class="add">
-      <input type="text" name="name" placeholder="Enter name" v-model="Gallery.name" />
-      <input type="text" name="address" placeholder="Enter address" v-model="Gallery.address" />
-      <input type="text" name="contact" placeholder="Enter contact" v-model="Gallery.contact" />
-      <button type="button" @click="updateGallery">Update Gallery</button>
-    </form>
+    <div class="content-wrapper">
+      <br><br>
+      <br><br><br><br>
+      <h1>Update</h1>
+      <br><br>
+      <form class="add">
+        <input type="text" name="name" placeholder="Enter name" v-model="Gallery.name" />
+        <input type="text" name="address" placeholder="Enter address" v-model="Gallery.address" />
+        <input type="text" name="contact" placeholder="Enter contact" v-model="Gallery.contact" />
+        <input type="text" name="image" placeholder="Enter image URL" v-model="Gallery.image" />
+        <button type="button" @click="updateGallery">Update Gallery</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -29,7 +31,8 @@ export default {
       Gallery: {
         name: '',
         address: '',
-        contact: ''
+        contact: '',
+        image: '' 
       }
     };
   },
@@ -39,7 +42,8 @@ export default {
         const result = await axios.put(`http://localhost:3000/gallery/${this.$route.params.id}`, {
           name: this.Gallery.name,
           address: this.Gallery.address,
-          contact: this.Gallery.contact
+          contact: this.Gallery.contact,
+          image: this.Gallery.image
         });
 
         if (result.status === 200) {
@@ -65,6 +69,7 @@ export default {
   }
 };
 </script>
+
 
 
 

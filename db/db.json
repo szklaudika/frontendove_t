@@ -18,12 +18,14 @@
       "name": "Louvre",
       "address": "Paris, France",
       "contact": "123456",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Louvre_Museum_Wikimedia_Commons.jpg",
       "id": "48cb"
     },
     {
       "name": "National Gallery of Art",
       "address": "Washington, D.C., United States",
       "contact": "7851643",
+      "image": "https://wamu.org/wp-content/uploads/2020/07/30075554873_baf611baa8_k-1500x1000.jpg",
       "id": "a0b6"
     }
   ]
