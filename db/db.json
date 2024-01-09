@@ -33,16 +33,22 @@
       "address": "Noida sector 50"
     },
     {
-      "id": "c8b8",
       "name": "Museum",
-      "address": "Nitrianska ulica, 322",
-      "contact": "123456"
+      "address": "Nitrianska ulica, 322sgfdh",
+      "contact": "123456",
+      "id": "c8b8"
     },
     {
-      "id": "48cb",
-      "name": "Museum",
+      "name": "Klaudia Szerződiová",
       "address": "Nitrianska ulica, 322/17",
-      "contact": "123456"
+      "contact": "123456adsfg",
+      "id": "48cb"
+    },
+    {
+      "name": "Klaudia Szerződiová",
+      "address": "Nitrianska ulica, 322/17",
+      "contact": "123456561",
+      "id": "a0b6"
     }
   ]
 }

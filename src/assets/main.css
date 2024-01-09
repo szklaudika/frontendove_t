@@ -1,4 +1,13 @@
 @import './base.css';
+
+body {
+  display: flex;
+  
+  align-items: center;
+  
+  margin: 0;
+}
+
 a,
 .green {
   text-decoration: none;
@@ -13,12 +22,5 @@ a,
   }
 }
 
-@media  {
-  body {
-    display: flex;
-    align-items: center;
-  }
-  
 
-  
-}
+
