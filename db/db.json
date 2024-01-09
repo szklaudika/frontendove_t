@@ -37,6 +37,12 @@
       "name": "Museum",
       "address": "Nitrianska ulica, 322",
       "contact": "123456"
+    },
+    {
+      "id": "48cb",
+      "name": "Museum",
+      "address": "Nitrianska ulica, 322/17",
+      "contact": "123456"
     }
   ]
 }

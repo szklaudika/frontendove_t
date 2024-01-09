@@ -2,7 +2,7 @@
     <div class="nav">
       <router-link to="/">Home</router-link>
       <router-link to="/add">Add</router-link>
-      <router-link to="/update">Update</router-link>
+     
       <a v-on:click="logout" href="#">Logout</a>
     </div>
   </template>
@@ -30,12 +30,12 @@
   }
   
   .nav a {
-    padding: 20px 50px; /* Increased padding for more space */
+    padding: 20px 50px; 
     text-align: center;
     float: left;
     font-size: 17px;
     text-decoration: none;
-    margin-right: 20px; /* Increased margin for more space between text */
+    margin-right: 20px; 
   }
   
   .nav a:hover {

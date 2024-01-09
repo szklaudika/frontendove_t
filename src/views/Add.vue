@@ -28,14 +28,18 @@ export default {
       }
     },
     methods:{
-        addGallery()
+        async addGallery()
         {
           console.warn(this.Gallery)
-          const result = axios.post("http://localhost:3000/gallery",{
+          const result = await axios.post("http://localhost:3000/gallery",{
             name:this.Gallery.name,
             address:this.Gallery.address,
             contact:this.Gallery.contact,
           });
+          if(result.status==201)
+          {
+            this.$router.push({name:'Home'});
+          }
           console.warn("result",result)
         }
     },
