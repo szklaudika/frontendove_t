@@ -15,7 +15,10 @@
       <td>{{ item.name }}</td>
       <td>{{ item.contact }}</td>
       <td>{{ item.address }}</td>
-      <td><router-link :to="'/update/' + item.id">Update</router-link></td>
+      <td>
+        <router-link :to="'/update/' + item.id">Update</router-link>
+        <button v-on:click="deleteGallery(item.id)">Delete</button>
+      </td>
     </tr>
   </table>
 </template>
@@ -35,15 +38,33 @@ export default {
   components: {
     Header,
   },
-  async mounted() {
-    let user = localStorage.getItem('user-info');
+methods:{
+    async deleteGallery(id)
+    {
+      let result = await axios.delete('http://localhost:3000/gallery/'+id);
+      console.warn(result.status)
+      if(result.status==200)
+      {
+        this.loadData()
+      }
+    },
+    async loadData()
+    {
+      let user = localStorage.getItem('user-info');
     this.name = JSON.parse(user).name;
-    if (!user) {
+    if (!user) 
+    {
       this.$router.push({ name: 'SignUp' });
     }
     let result = await axios.get('http://localhost:3000/gallery');
-    console.warn(result);
+    
     this.gallery = result.data;
+    }
+},
+
+  async mounted() 
+  {
+    this.loadData();
   },
 };
 </script>
