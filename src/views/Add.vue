@@ -1,12 +1,16 @@
 <template>
   <Header />
+  <br><br><br><br>
+<div class="content-wrapper">
  <h1>Add</h1>
+ <br><br>
  <form class="add">
   <input type="text" name="name" placeholder="Enter name" v-model="Gallery.name"/>
   <input type="text" name="address" placeholder="Enter address" v-model="Gallery.address"/>
   <input type="text" name="contact" placeholder="Enter contact" v-model="Gallery.contact"/>
   <button type="button" v-on:click="addGallery">Add new Gallery</button>
  </form>
+</div>
 </template>
 
 <script>

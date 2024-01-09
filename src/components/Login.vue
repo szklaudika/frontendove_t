@@ -1,13 +1,17 @@
 <template>
+  <br><br><br><br><br><br>
+   <div class="content-wrapper">
     <h1>Login</h1>
+    <br><br>
     <div class="login">
       <input type="text" v-model="email" placeholder="Enter Email" />
       <input type="password" v-model="password" placeholder="Enter Password" />
       <button v-on:click="login">Login</button>
-      <p>
+      <div class="content-wrapper"><p>
         <router-link to="/sign-up">Sign Up</router-link>
-      </p>
+      </p> </div>
     </div>
+   </div>
   </template>
   
   <script>

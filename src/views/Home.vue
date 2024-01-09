@@ -1,6 +1,9 @@
 <template>
   <Header />
+<div class="content-wrapper">
+  <br><br><br><br><br><br>
   <h1>Hello {{ name }}, Welcome on Home Page</h1>
+  <br><br>
   <table border="1">
     <tr>
       <td>Id</td>
@@ -21,6 +24,7 @@
       </td>
     </tr>
   </table>
+</div>
 </template>
 
 <script>

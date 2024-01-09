@@ -1,7 +1,11 @@
 <template>
-  <div>
+  
     <Header />
+  <div class="content-wrapper">
+    <br><br>
+    <br><br><br><br>
     <h1>Update</h1>
+    <br><br>
     <form class="add">
       <input type="text" name="name" placeholder="Enter name" v-model="Gallery.name" />
       <input type="text" name="address" placeholder="Enter address" v-model="Gallery.address" />
