@@ -2,16 +2,15 @@
   <Header />
   <div class="content-wrapper">
     <br><br><br><br><br><br>
-    <h1>Hello {{ name }}, Welcome on Home Page</h1>
+    <h1>Hello {{ name }}, I hope you like my art :)</h1>
     <br><br>
     <div class="gallery">
       <router-link :to="'/about/' + item.id" v-for="item in gallery" :key="item.id" class="gallery-item">
         <img :src="item.image" alt="Gallery Item" style="max-width: 100%; height: auto;">
         <div class="gallery-text">
-          <h3>{{ item.name }}</h3>
-          <p>Materials used: {{ item.contact }}</p>
+          <h3 style="color: rgb(231, 119, 119);">{{ item.name }}</h3>
+          <p>Materials used: {{ item.contact }}</p><br><br>
           <p>Price: {{ item.address }}</p>
-          <button @click="addToCart(item)">Add to Cart</button>
         </div>
       </router-link>
     </div>
@@ -44,16 +43,7 @@ export default {
 
       this.gallery = result.data;
     },
-    addToCart(item) {
-      // Add your cart logic here, for example, storing the item in local storage
-      let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-      cartItems.push(item);
-      localStorage.setItem('cart', JSON.stringify(cartItems));
-      alert('Item added to cart!');
-      
-      // Redirect to the Cart page
-      this.$router.push({ name: 'Cart' });
-    },
+    
   },
 
   async mounted() {
@@ -70,19 +60,17 @@ export default {
 }
 
 .gallery-item {
-  margin: 10px;
+  margin: 20px;
   padding: 10px;
-  border: 1px solid #ccc;
-  max-width: 300px;
+  border: 1px solid #491717;
+  max-width: 400px;
 }
 
 .gallery-text {
   text-align: center;
 }
 
-button {
-  margin-top: 10px;
-}
+
 </style>
 
 

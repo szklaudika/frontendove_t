@@ -2,25 +2,29 @@
     <div>
       <Header />
       <div class="content-wrapper">
-        <br><br><br><br>
-        <h1>Your Shopping Cart</h1><br><br>
+        <br /><br /><br /><br />
+        <h1>Your Shopping Cart</h1>
+        <br /><br />
         <div v-if="cart.length === 0">
           <p>Your cart is empty.</p>
         </div>
         <div v-else>
           <div v-for="item in cart" :key="item.id" class="cart-item">
-            <img :src="item.image" alt="Cart Item" style="max-width: 100%; height: auto;">
-            <div class="cart-item-text">
-              <h3>{{ item.name }}</h3>
-              <p>Contact: {{ item.contact }}</p>
-              <p>Address: {{ item.address }}</p>
-              <div class="cart-actions">
-                <button @click="decrementQuantity(item)">-</button>
-                <span>{{ item.quantity }}</span>
-                <button @click="incrementQuantity(item)">+</button>
-                <button @click="removeFromCart(item)">Remove from Cart</button>
+            <div class="cart-item-container">
+              <img :src="item.image" alt="Cart Item" class="cart-item-image" />
+              <div class="cart-item-details">
+                <h3>{{ item.name }}</h3>
+                <p>Materials used: {{ item.contact }}</p><br /><br />
+                <p>Price: {{ item.address }}</p><br /><br />
+                <div class="quantity-controls">
+                  <button @click="decreaseQuantity(item)">-</button>
+                  <span>{{ item.quantity }}</span>
+                  <button @click="increaseQuantity(item)">+</button>
+                </div>
+                <button @click="removeFromCart(item)">Remove from Cart</button><br /><br />
               </div>
             </div>
+            <hr />
           </div>
         </div>
       </div>
@@ -28,80 +32,109 @@
   </template>
   
   <script>
+  import { ref, onMounted } from 'vue';
   import Header from '../components/Header.vue';
   
   export default {
     name: 'Cart',
-    data() {
-      return {
-        cart: [],
-      };
-    },
     components: {
       Header,
     },
-    methods: {
-      loadCart() {
-        // Retrieve cart items from local storage
-        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
-      },
-      removeFromCart(item) {
-        // Remove item from cart
-        this.cart = this.cart.filter(cartItem => cartItem.id !== item.id);
-        localStorage.setItem('cart', JSON.stringify(this.cart));
-      },
-      incrementQuantity(item) {
-        // Increase quantity of the item in the cart
+    setup() {
+      const cart = ref([]);
+  
+      const loadCart = () => {
+        const storedCart = localStorage.getItem('cart');
+        cart.value = storedCart ? JSON.parse(storedCart) : [];
+      };
+  
+      const removeFromCart = (item) => {
+        cart.value = cart.value.filter(cartItem => cartItem.id !== item.id);
+        localStorage.setItem('cart', JSON.stringify(cart.value));
+      };
+  
+      const increaseQuantity = (item) => {
         item.quantity = (item.quantity || 1) + 1;
-        localStorage.setItem('cart', JSON.stringify(this.cart));
-      },
-      decrementQuantity(item) {
-        // Decrease quantity of the item in the cart, remove if quantity becomes zero
-        item.quantity = Math.max((item.quantity || 1) - 1, 0);
-        if (item.quantity === 0) {
-          this.removeFromCart(item);
-        } else {
-          localStorage.setItem('cart', JSON.stringify(this.cart));
+        localStorage.setItem('cart', JSON.stringify(cart.value));
+      };
+  
+      const decreaseQuantity = (item) => {
+        if (item.quantity > 1) {
+          item.quantity -= 1;
+          localStorage.setItem('cart', JSON.stringify(cart.value));
         }
-      },
-    },
-    mounted() {
-      this.loadCart();
+      };
+  
+      onMounted(() => {
+        loadCart();
+      });
+  
+      return {
+        cart,
+        loadCart,
+        removeFromCart,
+        increaseQuantity,
+        decreaseQuantity,
+      };
     },
   };
   </script>
   
   <style scoped>
-  .content-wrapper {
-    text-align: center;
-  }
-  
+
   .cart-item {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    max-width: 300px;
-    margin: 0 auto; /* Center the cart item */
+    margin-bottom: 20px;
   }
-  
-  .cart-item img {
-    max-width: 100%;
-    height: auto;
+
+  .cart-item-container {
+    display: flex;
+    align-items: center;
   }
-  
-  .cart-item-text {
-    text-align: center;
+
+  .cart-item-image {
+    width: 200px; 
+    margin-right: 60px; 
   }
-  
-  .cart-actions {
-    margin-top: 10px;
+
+  .cart-item-details {
+    flex: 1; 
   }
-  
+
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #ccc;
+  }
+
   button {
-    margin: 0 5px;
+    margin-top: 10px;
+    width: 200px; 
+    height: 40px;
+    border: 1px solid rgb(255, 0, 0);
+    background: rgb(46, 1, 1);
+    color: white;
+    cursor: pointer;
   }
-  </style>
+  .quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  background-color: #290000;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
   
+
   
   
   

@@ -25,14 +25,14 @@ body {
 a,
 .green {
   text-decoration: none;
-  color: lightpink;
+  color: rgb(197, 208, 255);
   transition: 0.4s;
   padding: 3px;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: royalblue;
+    background-color: rgb(46, 1, 1);
   }
 }
 

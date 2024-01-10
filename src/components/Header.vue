@@ -1,8 +1,7 @@
 <template>
   <div class="nav">
     <router-link to="/">Home</router-link>
-    <router-link to="/cart">Cart</router-link>
-
+    <router-link to="/cart">Cart <span v-if="cartCount">({{ cartCount }})</span></router-link>
     <a v-on:click="logout" href="#">Logout</a>
   </div>
 </template>
@@ -10,11 +9,32 @@
 <script>
 export default {
   name: 'Header',
+  data() {
+    return {
+      cartCount: 0,
+    };
+  },
   methods: {
     logout() {
       localStorage.clear();
       this.$router.push({ name: 'Login' });
     },
+    updateCartCount() {
+      
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      this.cartCount = cartItems.length;
+    },
+  },
+  mounted() {
+   
+    this.updateCartCount();
+
+    
+    window.addEventListener('storage', this.updateCartCount);
+  },
+  beforeUnmount() {
+    
+    window.removeEventListener('storage', this.updateCartCount);
   },
 };
 </script>
@@ -42,6 +62,11 @@ export default {
 
 .nav a:hover {
   background: linear-gradient();
+}
+
+.nav span {
+  font-size: 14px;
+  margin-left: 5px;
 }
 </style>
 
