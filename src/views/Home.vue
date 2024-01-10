@@ -10,7 +10,7 @@
         <div class="gallery-text">
           <h3 style="color: rgb(231, 119, 119);">{{ item.name }}</h3>
           <p>Materials used: {{ item.contact }}</p><br><br>
-          <p>Price: {{ item.address }}</p>
+          <p>Price: ${{ item.address }}</p>
         </div>
       </router-link>
     </div>

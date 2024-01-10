@@ -6,7 +6,7 @@ import Add from '../views/Add.vue';
 import Update from '../views/Update.vue';
 import About from '../views/About.vue'; 
 import Cart from '../views/Cart.vue';
-
+import AboutMe from '../views/AboutMe.vue'; 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,11 +45,15 @@ const router = createRouter({
       path: '/cart',
       name: 'Cart',
       component: Cart,
-    }
-    
-    
+    },
+    {
+      path: '/aboutme',
+      name: 'AboutMe',
+      component: AboutMe, 
+    },
   ],
 });
 
 export default router;
+
 

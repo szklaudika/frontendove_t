@@ -1,6 +1,7 @@
 <template>
   <div class="nav">
     <router-link to="/">Home</router-link>
+    <router-link to="/aboutme">About</router-link>
     <router-link to="/cart">Cart <span v-if="cartCount">({{ cartCount }})</span></router-link>
     <a v-on:click="logout" href="#">Logout</a>
   </div>
@@ -42,7 +43,7 @@ export default {
 <style>
 .nav {
   overflow: hidden;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   position: fixed;
   width: 100vw;
   top: 0;

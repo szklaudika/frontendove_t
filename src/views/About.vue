@@ -5,10 +5,10 @@
       <br><br><br><br><br>
       <h1>About {{ selectedItem.name }}</h1>
       <br><br>
-      <img :src="selectedItem.image" alt="Gallery Item" style="width: 30%; max-width: 100%; height: auto;">
+      <img :src="selectedItem.image" alt="Gallery Item" style="width: 30%; max-width: 50%; height: auto;">
       <br>
       <p>Materials used: {{ selectedItem.contact }}</p>
-      <p>Price: {{ selectedItem.address }}</p>
+      <p>Price: ${{ selectedItem.address }}</p>
       <br>
       <button @click="addToCart" style="width: 300px; height: 40px; border: 1px solid rgb(95, 151, 255); background: rgb(46, 1, 1); color: white; cursor: pointer;">
         Add to Cart

@@ -14,17 +14,23 @@
               <img :src="item.image" alt="Cart Item" class="cart-item-image" />
               <div class="cart-item-details">
                 <h3>{{ item.name }}</h3>
-                <p>Materials used: {{ item.contact }}</p><br /><br />
-                <p>Price: {{ item.address }}</p><br /><br />
+                <p>Materials used: {{ item.contact }}</p><br />
+                <p>Price: ${{ item.address }}</p>
+                <br />
                 <div class="quantity-controls">
                   <button @click="decreaseQuantity(item)">-</button>
                   <span>{{ item.quantity }}</span>
                   <button @click="increaseQuantity(item)">+</button>
-                </div>
-                <button @click="removeFromCart(item)">Remove from Cart</button><br /><br />
+                </div><br />
+                <button @click="removeFromCart(item)">Remove from Cart</button>
+                <br /><br />
               </div>
             </div>
             <hr />
+          </div>
+          <div class="total-price">
+            <p>Total Price: ${{ totalPrice }}</p>
+            <button @click="checkout">Checkout</button>
           </div>
         </div>
       </div>
@@ -32,7 +38,7 @@
   </template>
   
   <script>
-  import { ref, onMounted } from 'vue';
+  import { ref, computed, onMounted } from 'vue';
   import Header from '../components/Header.vue';
   
   export default {
@@ -65,6 +71,17 @@
         }
       };
   
+      const checkout = () => {
+        
+        alert('Checkout functionality will be implemented.');
+      };
+  
+      const totalPrice = computed(() => {
+        return cart.value.reduce((total, item) => {
+          return total + (item.address || 0) * (item.quantity || 1);
+        }, 0).toFixed(2);
+      });
+  
       onMounted(() => {
         loadCart();
       });
@@ -75,6 +92,8 @@
         removeFromCart,
         increaseQuantity,
         decreaseQuantity,
+        checkout,
+        totalPrice,
       };
     },
   };
@@ -92,7 +111,7 @@
   }
 
   .cart-item-image {
-    width: 200px; 
+    width: 250px; 
     margin-right: 60px; 
   }
 
@@ -129,6 +148,21 @@
   background-color: #290000;
   color: white;
   border: none;
+  cursor: pointer;
+}
+
+.total-price {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.total-price button {
+  margin-top: 10px;
+  width: 200px;
+  height: 40px;
+  border: 1px solid #c90d00;
+  background: #300000;
+  color: white;
   cursor: pointer;
 }
 </style>
