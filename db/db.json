@@ -11,22 +11,35 @@
       "email": "cloudy@test.com",
       "password": "123",
       "name": "cloudy"
+    },
+    {
+      "id": "f292",
+      "email": "asd",
+      "password": "asd",
+      "name": "asd"
     }
   ],
   "gallery": [
     {
-      "name": "Louvre",
-      "address": "Paris, France",
-      "contact": "123456",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Louvre_Museum_Wikimedia_Commons.jpg",
-      "id": "48cb"
-    },
-    {
       "name": "National Gallery of Art",
-      "address": "Washington, D.C., United States",
+      "address": "Washington, ",
       "contact": "7851643",
       "image": "https://wamu.org/wp-content/uploads/2020/07/30075554873_baf611baa8_k-1500x1000.jpg",
       "id": "a0b6"
+    },
+    {
+      "name": "sgdhfj",
+      "address": "srdzhtjfkg",
+      "contact": "drhztjfuk",
+      "image": "https://wamu.org/wp-content/uploads/2020/07/30075554873_baf611baa8_k-1500x1000.jpg",
+      "id": "ce54"
+    },
+    {
+      "id": "ed2f",
+      "name": "ergth",
+      "address": "redhztjzgk",
+      "contact": "dtxjfzchkg",
+      "image": "https://wamu.org/wp-content/uploads/2020/07/30075554873_baf611baa8_k-1500x1000.jpg"
     }
   ]
 }

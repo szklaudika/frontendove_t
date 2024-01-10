@@ -5,16 +5,15 @@
     <h1>Hello {{ name }}, Welcome on Home Page</h1>
     <br><br>
     <div class="gallery">
-      <div v-for="item in gallery" :key="item.id" class="gallery-item">
+      <router-link :to="'/about/' + item.id" v-for="item in gallery" :key="item.id" class="gallery-item">
         <img :src="item.image" alt="Gallery Item" style="max-width: 100%; height: auto;">
         <div class="gallery-text">
           <h3>{{ item.name }}</h3>
-          <p>Contact: {{ item.contact }}</p>
-          <p>Address: {{ item.address }}</p>
-          <router-link :to="'/update/' + item.id">Update</router-link>
-          <button v-on:click="deleteGallery(item.id)">Delete</button>
+          <p>Materials used: {{ item.contact }}</p>
+          <p>Price: {{ item.address }}</p>
+          <button @click="addToCart(item)">Add to Cart</button>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -35,13 +34,6 @@ export default {
     Header,
   },
   methods: {
-    async deleteGallery(id) {
-      let result = await axios.delete('http://localhost:3000/gallery/' + id);
-      console.warn(result.status);
-      if (result.status == 200) {
-        this.loadData();
-      }
-    },
     async loadData() {
       let user = localStorage.getItem('user-info');
       this.name = JSON.parse(user).name;
@@ -51,6 +43,16 @@ export default {
       let result = await axios.get('http://localhost:3000/gallery');
 
       this.gallery = result.data;
+    },
+    addToCart(item) {
+      // Add your cart logic here, for example, storing the item in local storage
+      let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.push(item);
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      alert('Item added to cart!');
+      
+      // Redirect to the Cart page
+      this.$router.push({ name: 'Cart' });
     },
   },
 
@@ -77,7 +79,14 @@ export default {
 .gallery-text {
   text-align: center;
 }
+
+button {
+  margin-top: 10px;
+}
 </style>
+
+
+
 
 
 

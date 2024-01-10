@@ -4,7 +4,9 @@ import SignUp from '../components/SignUp.vue';
 import Login from '../components/Login.vue';
 import Add from '../views/Add.vue';
 import Update from '../views/Update.vue';
-import AddCategory from '../views/Category/AddCategory.vue';
+import About from '../views/About.vue'; 
+import Cart from '../views/Cart.vue';
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,10 +37,17 @@ const router = createRouter({
       path: '/update/:id',
     },
     {
-      name: 'AddCategory',
-      path: '/addCategory',
-      component: AddCategory,
+      path: '/about/:id',
+      name: 'About',
+      component: About,
     },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart,
+    }
+    
+    
   ],
 });
 
