@@ -1,11 +1,11 @@
 <template>
-  <div>
+  
     <Header />
     <div class="content-wrapper">
       <br><br><br><br><br>
-      <h1>About {{ selectedItem.name }}</h1>
+      <h1>{{ selectedItem.name }}</h1>
       <br><br>
-      <img :src="selectedItem.image" alt="Gallery Item" style="width: 30%; max-width: 50%; height: auto;">
+      <img :src="selectedItem.image" alt="Gallery Item" style="width: 30%; max-width: 30%; height: auto;">
       <br>
       <p>Materials used: {{ selectedItem.contact }}</p>
       <p>Price: ${{ selectedItem.address }}</p>
@@ -15,7 +15,7 @@
       </button>
       <br><br><br>
     </div>
-  </div>
+  
 </template>
 
 <script>
